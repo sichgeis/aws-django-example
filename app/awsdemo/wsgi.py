@@ -13,4 +13,9 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'awsdemo.settings')
 
-application = get_wsgi_application()
+##application = get_wsgi_application()
+
+def application(environ, start_response):
+    body = b'Hallo Lumi, wollen wir heute abend rotes Chilli und Naan essen und danach platformern?'
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    return [body]
